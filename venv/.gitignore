@@ -1,0 +1,7 @@
+.env
+venv
+.idea
+.vscode
+pycache/
+*.py[cod]
+*.so
