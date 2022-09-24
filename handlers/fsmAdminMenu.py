@@ -5,7 +5,7 @@ from aiogram.dispatcher.filters.state import State, StatesGroup
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 from config import bot, ADMIN
-from database.bot_dp import *
+from database.bot_dp import sql_command_insert, sql_command_delete, sql_command_all
 
 class FSMAdmin(StatesGroup):
     photo=State()

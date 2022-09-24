@@ -2,7 +2,7 @@ import random
 from aiogram import types, Dispatcher
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from config import bot, dp
-from database.bot_dp import *
+from database.bot_dp import sql_command_random
 
 async def mem(message: types.Message):
     photo = open('media/mem.jpg', 'rb')
