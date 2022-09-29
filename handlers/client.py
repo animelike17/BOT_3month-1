@@ -3,6 +3,7 @@ from aiogram import types, Dispatcher
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from config import bot, dp
 from database.bot_dp import sql_command_random
+from handlers import doram
 
 async def mem(message: types.Message):
     photo = open('media/mem.jpg', 'rb')
@@ -40,11 +41,22 @@ async def pin(message: types.Message):
 async def show_random_food(message: types.Message):
     await sql_command_random(message)
 
+
+async def parser_news(message: types.Message):
+    data = doram.parser()[:3]
+    for item in data:
+        await bot.send_message(message.from_user.id,
+                               f"{item['time']}\n"
+                               f"{item['title']}\n"
+                               f"{item['link']}")
+
+
 def register_handlers_client(dp: Dispatcher):
     dp.register_message_handler(mem, commands=['mem'])
     dp.register_message_handler(quiz_1, commands=['quiz'])
     dp.register_message_handler(pin, commands=['pin'], commands_prefix='!')
     dp.register_message_handler(show_random_food, commands=['random'])
+    dp.register_message_handler(parser_news, commands=['news'])
 
 
 

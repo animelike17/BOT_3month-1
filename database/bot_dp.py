@@ -9,10 +9,6 @@ def sql_create():
     db = sqlite3.connect("bot.sqlite3")
     cursor = db.cursor()
 
-
-
-
-
     if db:
         print('База данных подключена')
     # db.execute('DROP TABLE IF EXISTS menu')

@@ -88,7 +88,7 @@ def register_handlers_FSMAdmin(dp: Dispatcher):
     dp.register_message_handler(cancel_registration,
                                 Text(equals='stop', ignore_case=True), state="*")
 
-    dp.register_message_handler(start, commands='menu')
+    dp.register_message_handler(start, commands=['menu'])
     dp.register_message_handler(load_photo, state=FSMAdmin.photo, content_types=['photo'])
     dp.register_message_handler(load_name, state=FSMAdmin.name)
     dp.register_message_handler(load_desk, state=FSMAdmin.desk)

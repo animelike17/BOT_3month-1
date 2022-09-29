@@ -8,7 +8,7 @@ from database.bot_dp import sql_create
 
 async def on_startup(_):
     asyncio.create_task(notifications.scheduler())
-    # bot_db.sql_create()
+    sql_create()
 
 client.register_handlers_client(dp)
 fsmAdminMenu.register_handlers_FSMAdmin(dp)
