@@ -3,7 +3,7 @@ from aiogram import types, Dispatcher
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from config import bot, dp
 from database.bot_dp import sql_command_random
-from handlers import doram
+from handlers import news
 
 async def mem(message: types.Message):
     photo = open('media/mem.jpg', 'rb')
@@ -43,7 +43,7 @@ async def show_random_food(message: types.Message):
 
 
 async def parser_news(message: types.Message):
-    data = doram.parser()[:3]
+    data = news.parser()[:3]
     for item in data:
         await bot.send_message(message.from_user.id,
                                f"{item['time']}\n"
